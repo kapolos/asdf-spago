@@ -37,12 +37,12 @@ download_release() {
   if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     bin="linux"
   elif [[ "$OSTYPE" == "darwin"* ]]; then
-    bin="osx"
+    bin="macOS"
   else
     fail "unrecognized operating system $OSTYPE"
   fi
 
-  url="$GH_REPO/releases/download/${version}/${bin}.tar.gz"
+  url="$GH_REPO/releases/download/${version}/${bin}-latest.tar.gz"
 
   echo "* Downloading spago release $version..."
   curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
